@@ -3,7 +3,7 @@
 #include <fstream>
 
 using namespace std;
-
+//Estrutura da prova 3
 struct tTriangulo{
   float lado1=0.0;
   float lado2=0.0;
@@ -38,6 +38,7 @@ struct tLista{
   int tamanho;
 };
 
+// vai inicializar lista.
 void inicializaLista(tLista *pLista){
   pLista -> primeiro = NULL;
   pLista -> ultimo = NULL;
@@ -46,6 +47,7 @@ void inicializaLista(tLista *pLista){
 
 }
 
+// volta o tamanho da lista 
 int obterTamanho(tLista* pLista){
   return pLista -> tamanho;
 }
@@ -58,6 +60,7 @@ bool finalLista(tLista* pLista){
   return (pLista->marcador == NULL);
 }
 
+//Função para inserior novos elementos no final
 void incluirNoFim(tLista* pLista, int info){
   tNo* no;
   no = criaNo(info);
@@ -76,6 +79,7 @@ void incluirNoFim(tLista* pLista, int info){
 
 }
 
+// Faz a impressão da lista na tela
 void imprimirLista(tLista* pLista){
   pLista->marcador = pLista->primeiro;
   
@@ -89,7 +93,8 @@ void imprimirLista(tLista* pLista){
   }
 }
 
-void varrerLista(tLista* pLista){
+// Função responsalvel por navegar pelas informções da lista e inserir no aqruivo TXT
+void navegacaoDaLista(tLista* pLista){
   
   pLista->marcador = pLista->primeiro;
   
@@ -110,25 +115,26 @@ void varrerLista(tLista* pLista){
 
 
 int main() {
-tLista* lados = new tLista;
-tLista* amostragem = new tLista;
-int aux1=0, aux2=0, aux3=0, opcao=0,n=0;
-tTriangulo base, altura, hipotenusa;
-ifstream baldo;
+tLista* lados = new tLista;               //lista encadeada
+tLista* amostragem = new tLista;         //lista encadeada
+int aux1=0, aux2=0, aux3=0, opcao=0,n=0; //  varivaeis de auxiliio
+tTriangulo base, altura, hipotenusa;     // 
+ifstream baldo;                           
 string nome=" ",mostrar=" ";
 
-
+//funções para inicializar as listas 
 inicializaLista (lados);
 inicializaLista (amostragem);
 
+//Solicitação da inforções para o usuario
 cout << "Digite uma opção:" << endl;
 cout << "1 - para ler" << endl;
 cout << "2 - para escrever" << endl;
 cin >> aux1;
 
-// entrada de dados
+// caso a opcao for escrever
 while(aux1!=1){
-  
+    // quantidades de triangulos a ser calculados 
     if (aux1 == 2){
       cout << "Digite quantos triangulos deseja gravar" << endl;
       cin >> aux2;
@@ -136,25 +142,25 @@ while(aux1!=1){
 
       for(int i=0;i<aux2;i++){
         
-        cout << "Digite o" << i+1 <<"° lado" << endl;
+        cout << "Digite o" << i+1 <<" ° lado" << endl;
         cin >> base.lado1;
-        incluirNoFim(lados, base.lado1);
+        incluirNoFim(lados, base.lado1); //jogando as informações para uma lista encadeada
 
 
-        cout << "Digite o " << i+1 <<"° lado" <<endl;
+        cout << "Digite o " << i+2 <<"° lado" <<endl;
         cin >> altura.lado2;
-        incluirNoFim(lados, altura.lado2);
+        incluirNoFim(lados, altura.lado2); //jogando as informações para uma lista encadeada
 
 
-        cout << "Digite o " << i+2 << "° lado" << endl;
+        cout << "Digite o " << i+3 << "° lado" << endl;
         cin >> hipotenusa.lado3;
-        incluirNoFim(lados, hipotenusa.lado3);
+        incluirNoFim(lados, hipotenusa.lado3); //jogando as informações para uma lista encadeada
 
 
       }
 
       imprimirLista(lados);
-      varrerLista (lados);
+      navegacaoDaLista(lados);
     }
   
   cout << "O que deseja fazer" <<endl;
@@ -179,7 +185,6 @@ if(aux1 == 1 ){
   
   
 }
-
 
 }
 
