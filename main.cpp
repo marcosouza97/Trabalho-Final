@@ -111,11 +111,15 @@ void varrerLista(tLista* pLista){
 
 int main() {
 tLista* lados = new tLista;
+tLista* amostragem = new tLista;
 int aux1=0, aux2=0, aux3=0, opcao=0,n=0;
 tTriangulo base, altura, hipotenusa;
+ifstream baldo;
+string nome=" ",mostrar=" ";
 
 
 inicializaLista (lados);
+inicializaLista (amostragem);
 
 cout << "Digite uma opção:" << endl;
 cout << "1 - para ler" << endl;
@@ -158,7 +162,24 @@ while(aux1!=1){
   cout << "2 - para escrever" << endl;
   cin >> aux1;
 }
+
+if(aux1 == 1 ){
+   baldo.open("valores.txt", ios :: in);
+
+  while (!baldo.eof()){
+    
+    baldo >> mostrar;
+    cout << mostrar << endl;
+    n = stoi (mostrar);
+    incluirNoFim(amostragem, n);
+  }
+
+  baldo.close();
+   imprimirLista(amostragem);
   
+  
+}
+
 
 }
 
