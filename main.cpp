@@ -88,8 +88,28 @@ void imprimirLista(tLista* pLista){
 
 int main() {
 tLista* lados = new tLista;
+int aux1=0, aux2=0;
 
 inicializaLista (lados);
+
+// entrada de dados
+
+cout << "Difite uma opção:" << endl;
+cout << "1 - para ler" << endl;
+cout << "2 - para escrever" << endl;
+cin >> aux1;
+
+if(aux1 == 1){
+
+}
+else{
+  if (aux1 == 2){
+    cout << "Digite quantos triangulos deseja gravar" << endl;
+    cin >> aux2;
+  }
+}
+
+
 
 
 
