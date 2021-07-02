@@ -135,21 +135,21 @@ cin >> aux1;
 // caso a opcao for escrever
 while(aux1!=1){
     // quantidades de triangulos a ser calculados 
-    if (aux1 == 2){
-      cout << "Digite quantos triangulos deseja gravar" << endl;
-      cin >> aux2;
+  if (aux1 == 2){
+    cout << "Digite quantos triangulos deseja gravar" << endl;
+    cin >> aux2;
 
 
-      for(int i=0;i<aux2;i++){
+    for(int i=0;i<aux2;i++){
         
-        cout << "Digite o" << i+1 <<" ° lado" << endl;
-        cin >> base.lado1;
-        incluirNoFim(lados, base.lado1); //jogando as informações para uma lista encadeada
+      cout << "Digite o" << i+1 <<" ° lado" << endl;
+      cin >> base.lado1;
+      incluirNoFim(lados, base.lado1); //jogando as informações para uma lista encadeada
 
 
-        cout << "Digite o " << i+2 <<"° lado" <<endl;
-        cin >> altura.lado2;
-        incluirNoFim(lados, altura.lado2); //jogando as informações para uma lista encadeada
+      cout << "Digite o " << i+2 <<"° lado" <<endl;
+      cin >> altura.lado2;
+      incluirNoFim(lados, altura.lado2); //jogando as informações para uma lista encadeada
 
 
         cout << "Digite o " << i+3 << "° lado" << endl;
@@ -157,33 +157,34 @@ while(aux1!=1){
         incluirNoFim(lados, hipotenusa.lado3); //jogando as informações para uma lista encadeada
 
 
-      }
-
-      imprimirLista(lados);
-      navegacaoDaLista(lados);
     }
-  
+
+    imprimirLista(lados);  // impri a lista encadeada
+    navegacaoDaLista(lados); // chama a função para gravar a lista encadeada no arquivo TXT
+  }
+
+  // volta a opção para o usuario
   cout << "O que deseja fazer" <<endl;
   cout << "1 - para ler" << endl;
   cout << "2 - para escrever" << endl;
   cin >> aux1;
 }
 
+// caso a opção do usuario seja ler o arquivo
 if(aux1 == 1 ){
-   baldo.open("valores.txt", ios :: in);
+   baldo.open("valores.txt", ios :: in); //funcao para realizar leitura
 
-  while (!baldo.eof()){
+   while (!baldo.eof()){
     
     baldo >> mostrar;
     cout << mostrar << endl;
-    n = stoi (mostrar);
-    incluirNoFim(amostragem, n);
+    n = stoi (mostrar);   // pegando o arquivo em string e transformando para int
+    incluirNoFim(amostragem, n); //pegando as informções lidas e colocando em uma lista encadead 
   }
 
   baldo.close();
-   imprimirLista(amostragem);
-  
-  
+  // vai imprimir o modelo da lista encadeada
+  imprimirLista(amostragem);
 }
 
 }
