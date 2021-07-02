@@ -2,6 +2,13 @@
 
 using namespace std;
 
+struct tTriangulo{
+  float lado1=0.0;
+  float lado2=0.0;
+  float lado3=0.0;
+  float aux;
+};
+
 // estrutura para lista
 struct tNo{
   int info;
