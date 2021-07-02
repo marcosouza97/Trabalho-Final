@@ -108,10 +108,12 @@ void varrerLista(tLista* pLista){
 }
 
 
+
 int main() {
 tLista* lados = new tLista;
-int aux1=0, aux2=0, aux3=0;
+int aux1=0, aux2=0, aux3=0, opcao=0,n=0;
 tTriangulo base, altura, hipotenusa;
+
 
 inicializaLista (lados);
 
@@ -121,12 +123,8 @@ cout << "2 - para escrever" << endl;
 cin >> aux1;
 
 // entrada de dados
-while(aux1!=){
+while(aux1!=1){
   
-  if(aux1 == 1){
-
-  }
-  else{
     if (aux1 == 2){
       cout << "Digite quantos triangulos deseja gravar" << endl;
       cin >> aux2;
@@ -154,13 +152,13 @@ while(aux1!=){
       imprimirLista(lados);
       varrerLista (lados);
     }
-  }
+  
   cout << "O que deseja fazer" <<endl;
   cout << "1 - para ler" << endl;
   cout << "2 - para escrever" << endl;
   cin >> aux1;
 }
-
-
+  
 
 }
+
