@@ -1,4 +1,6 @@
 #include <iostream>
+#include <locale.h>
+#include <fstream>
 
 using namespace std;
 
@@ -88,7 +90,8 @@ void imprimirLista(tLista* pLista){
 
 int main() {
 tLista* lados = new tLista;
-int aux1=0, aux2=0;
+int aux1=0, aux2=0, aux3=0;
+tTriangulo base, altura, hipotenusa;
 
 inicializaLista (lados);
 
@@ -106,6 +109,33 @@ else{
   if (aux1 == 2){
     cout << "Digite quantos triangulos deseja gravar" << endl;
     cin >> aux2;
+
+
+    for(int i=0;i<aux2;i++){
+      
+      cout << "Digite o" << i+1 <<"° lado" << endl;
+      cin >> base.lado1;
+      incluirNoFim(lados, base.lado1);
+
+
+      cout << "Digite o " << i+1 <<"° lado" <<endl;
+      cin >> altura.lado2;
+      incluirNoFim(lados, altura.lado2);
+
+
+      cout << "Digite o " << i+2 << "° lado" << endl;
+      cin >> hipotenusa.lado3;
+      incluirNoFim(lados, hipotenusa.lado3);
+
+
+    }
+
+    imprimirLista(lados);
+
+
+
+
+
   }
 }
 
