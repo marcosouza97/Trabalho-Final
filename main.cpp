@@ -60,7 +60,7 @@ bool finalLista(tLista* pLista){
   return (pLista->marcador == NULL);
 }
 
-//Função para inserior novos elementos no final
+//Função para inserior novos elementos no final de
 void incluirNoFim(tLista* pLista, int info){
   tNo* no;
   no = criaNo(info);
@@ -142,7 +142,7 @@ while(aux1!=1){
 
     for(int i=0;i<aux2;i++){
         
-      cout << "Digite o" << i+1 <<" ° lado" << endl;
+      cout << "Digite o" << i+1 <<"° lado" << endl;
       cin >> base.lado1;
       incluirNoFim(lados, base.lado1); //jogando as informações para uma lista encadeada
 
@@ -177,12 +177,13 @@ if(aux1 == 1 ){
    while (!baldo.eof()){
     
     baldo >> mostrar;
-    cout << mostrar << endl;
     n = stoi (mostrar);   // pegando o arquivo em string e transformando para int
     incluirNoFim(amostragem, n); //pegando as informções lidas e colocando em uma lista encadead 
   }
 
   baldo.close();
+
+  cout << endl;
   // vai imprimir o modelo da lista encadeada
   imprimirLista(amostragem);
 }
